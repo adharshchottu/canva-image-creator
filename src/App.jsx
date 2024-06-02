@@ -13,6 +13,7 @@ const firebaseConfig = {
 import { Route, Routes } from "react-router-dom";
 import Glossary from './pages/Glossary';
 import ObservanceDays from './pages/ObservanceDays';
+import Typinks from './pages/Typinks';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route exact path="/" Component={Glossary} />
         <Route exact path="/observance-days" Component={ObservanceDays} />
+        <Route exact path="/typinks" Component={Typinks} />
       </Routes>
     </>
   )
