@@ -3,12 +3,11 @@ import { Stage, Layer, Text, Image, Group, Rect } from 'react-konva';
 import background from '../assets/background.png';
 import { Label, Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-// import imageFrom from "https://images.unsplash.com/photo-1492496913980-501348b61469?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MTY1OTR8MHwxfHNlYXJjaHwxfHxzb2lsfGVufDB8fHx8MTcxNjgyODU3Mnww&ixlib=rb-4.0.3&q=80&w=1080";
-import '../index.css'
-import Unsplash from './Unsplash';
+import Unsplash from '../components/Unsplash';
 import glossaryData from '../data/glossary';
+import Navbar from '../components/Navbar';
 
-function Canvas() {
+const Glossary = () => {
     const [titleProp, setTitleProp] = useState({
         title: "Acidification of Soil Acidity",
         fontSize: 100
@@ -143,6 +142,7 @@ function Canvas() {
 
     return (
         <>
+            <Navbar page="glossary" />
             <div className='flex flex-row'>
                 <div className='w-1/2'>
                     <main className='absolute transform scale-50 -translate-x-36 -translate-y-72 -left-6'>
@@ -332,4 +332,4 @@ function Canvas() {
     )
 }
 
-export default Canvas
+export default Glossary

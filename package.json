@@ -15,7 +15,8 @@
     "firebase": "^10.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-konva": "^18.2.10"
+    "react-konva": "^18.2.10",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
