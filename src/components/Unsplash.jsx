@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { API_KEY } from "../../config";
 
-const Unsplash = ({ setSelectedImage }) => {
+const Unsplash = ({ setSelectedImage, orientation = 'landscape' }) => {
     const [query, setQuery] = useState("");
     const [images, setImages] = useState([]);
 
@@ -2526,7 +2526,7 @@ const Unsplash = ({ setSelectedImage }) => {
 
     const searchButton = () => {
         if (query != "") {
-            const API_URL = `https://api.unsplash.com/search/photos?page=1&per_page=30&query=${query}&client_id=${API_KEY}&orientation=landscape`;
+            const API_URL = `https://api.unsplash.com/search/photos?page=1&per_page=30&query=${query}&client_id=${API_KEY}&orientation=${orientation}`;
 
             const fetchImages = async () => {
                 try {

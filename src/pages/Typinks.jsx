@@ -20,7 +20,8 @@ const Typinks = () => {
         dayFontSize: 70,
         descriptionFontSize: 36,
         displayMonth: 'JUN',
-        displayDate: '02'
+        displayDate: '02',
+        descriptionY: 950
     });
 
     const stageRef = useRef(null);
@@ -93,6 +94,13 @@ const Typinks = () => {
         }));
     };
 
+    const handleDescriptionYChange = (event) => {
+        setCelebration(prevState => ({
+            ...prevState,
+            descriptionY: Number(event.target.value)
+        }));
+    };
+
     const clipSquare = (ctx, x, y, width, height) => {
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -141,10 +149,11 @@ const Typinks = () => {
                                 <Group clipFunc={(ctx) => clipSquare(ctx, 90, 205, 1020, 490)}>
                                     <Image
                                         image={image}
-                                        x={90}
-                                        y={205}
-                                        width={1020}
-                                        height={490}
+                                        x={80}
+                                        y={200}
+                                        height={500}
+                                        width={1100}
+                                        offsetY={0}
                                     />
                                 </Group>
                                 <Group clipFunc={(ctx) => clipSquare(ctx, 210, 72, 228, 140)}>
@@ -189,16 +198,17 @@ const Typinks = () => {
                                         fill={'#fff'}
                                     />
                                 </Group>
-                                <Group clipFunc={(ctx) => clipSquare(ctx, 90, 950, 1025, 200)}>
-                                    <Rect fill='#000' width={1200} height={400} x={0} y={950} visible={true} opacity={1} />
+                                <Group clipFunc={(ctx) => clipSquare(ctx, 90, celebration.descriptionY, 1111, 600)}>
+                                    <Rect fill='#000' width={1200} height={600} x={0} y={celebration.descriptionY} visible={true} opacity={1} />
                                     <Text
                                         text={celebration.description}
                                         x={100}
-                                        y={960}
+                                        y={celebration.descriptionY + 10}
                                         fontSize={celebration.descriptionFontSize}
-                                        width={1100}
+                                        width={1000}
                                         fontFamily='Poppins-Regular, sans-serif'
                                         fill={'#fff'}
+                                        lineHeight={1.2}
                                     />
                                 </Group>
                             </Layer>
@@ -267,6 +277,20 @@ const Typinks = () => {
                                     />
                                 </div>
                             </div>
+                            <div>
+                                <label htmlFor="Y" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Y
+                                </label>
+                                <div className="relative mt-2 rounded-md shadow-sm">
+                                    <input
+                                        value={celebration.descriptionY}
+                                        type="number"
+                                        className="block w-full rounded-md border-0 p-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        placeholder="0.00"
+                                        onChange={handleDescriptionYChange}
+                                    />
+                                </div>
+                            </div>
                         </div>
                         <div className="flex flex-row">
                             <div>
@@ -285,7 +309,7 @@ const Typinks = () => {
                         </div>
                     </div>
                     <div>
-                        <Unsplash setSelectedImage={setSelectedImage} />
+                        <Unsplash setSelectedImage={setSelectedImage}/>
                     </div>
                 </div>
             </div>
