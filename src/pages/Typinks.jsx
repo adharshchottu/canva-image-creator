@@ -28,6 +28,7 @@ const Typinks = () => {
     const [bgImage, setBgImage] = useState(null);
     const [image, setImage] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [uploadedImage, setUploadedImage] = useState(null);
     const [date, setDate] = useState(formattedDate);
 
     useEffect(() => {
@@ -49,6 +50,24 @@ const Typinks = () => {
             setImage(ima);
         };
     }, [selectedImage]);
+
+    // set uploaded image
+    useEffect(() => {
+        if (uploadedImage) {
+            const ima = new window.Image();
+
+            // Create a URL for the uploaded file
+            const imageUrl = URL.createObjectURL(uploadedImage);
+            ima.src = imageUrl;
+
+            // Clean up the created URL after the image is loaded
+            ima.onload = () => {
+                console.log(imageUrl);
+                setImage(ima);
+                // URL.revokeObjectURL(imageUrl);
+            };
+        }
+    }, [uploadedImage]);
 
     useEffect(() => {
         const dateParts = date.split('-');
@@ -307,9 +326,23 @@ const Typinks = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className="flex flex-row">
+                            <div>
+                                <label htmlFor="Upload Image" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Upload Image
+                                </label>
+                                <div className="relative mt-2 rounded-md shadow-sm">
+                                    <input
+                                        type="file"
+                                        className="block w-full rounded-md border-0 p-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        onChange={(e) => setUploadedImage(e.target.files[0])}
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <Unsplash setSelectedImage={setSelectedImage}/>
+                        <Unsplash setSelectedImage={setSelectedImage} />
                     </div>
                 </div>
             </div>
