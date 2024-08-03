@@ -153,7 +153,7 @@ const Typinks = () => {
     return (
         <>
             <Navbar page="typinks" />
-            <div className='flex flex-row'>
+            <div className='flex flex-row h-[90vh]'>
                 <div className='w-1/2'>
                     <main className='absolute transform scale-50 -translate-x-36 -translate-y-72 -left-6'>
                         <Stage width={1200} height={1200} ref={stageRef} >
@@ -234,7 +234,7 @@ const Typinks = () => {
                         </Stage>
                     </main>
                 </div>
-                <div className='relative p-8 flex flex-col w-1/2'>
+                <div className='relative p-8 flex flex-col w-1/2 overflow-y-auto'>
                     <div>
                         <button className='p-2 bg-green-500 text-white rounded-xl m-2' onClick={handleDownload}>Download</button>
                     </div>
