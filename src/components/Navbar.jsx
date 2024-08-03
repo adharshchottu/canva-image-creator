@@ -14,8 +14,8 @@ import { Link } from 'react-router-dom'
 
 export default function Example({ page }) {
     const navigation = [
-        { name: 'Glossary', href: '#', current: page == 'glossary' },
-        { name: 'Typinks', href: '/typinks', current: false },
+        { name: 'Glossary', href: '/', current: page == 'glossary' },
+        { name: 'Typinks', href: '/typinks', current: page == 'typinks' },
         { name: 'Observance days', href: '/observance-days', current: page == 'observance' },
         { name: 'Calendar', href: '#', current: false },
     ]

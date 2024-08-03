@@ -152,7 +152,7 @@ const Typinks = () => {
 
     return (
         <>
-            <Navbar page="observance" />
+            <Navbar page="typinks" />
             <div className='flex flex-row'>
                 <div className='w-1/2'>
                     <main className='absolute transform scale-50 -translate-x-36 -translate-y-72 -left-6'>
